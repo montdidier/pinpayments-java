@@ -8,6 +8,6 @@ Please feel free to send an email to: [delight.wjk@gmail.com](mailto:delight.wjk
 
 ## Found a bug?
 
-If you have found a bug, please feel free to [create a new issue](https://github.com/jiakuan/pinpayments-java/issues/new).
+If you have found a bug, please feel free to [create a new issue](https://github.com/PracticeInsight/pinpayments-java/issues/new).
 
 Even better, you can send a pull request, which is always welcome.
