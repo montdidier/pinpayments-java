@@ -1,0 +1,8 @@
+--------------------------------------------------------------------------------
+Usage: make clean|build|release|publish
+
+  clean   - clean projects
+  build   - build projects
+  release - release projects
+  publish - publish proects to Maven central
+--------------------------------------------------------------------------------

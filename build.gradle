@@ -1,0 +1,191 @@
+/*
+ * Copyright 2017 Practice Insight.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        // https://plugins.gradle.org/plugin/com.github.kt3k.coveralls
+        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3"
+        // https://github.com/aaschmid/gradle-cpd-plugin
+        classpath 'de.aaschmid:gradle-cpd-plugin:1.0'
+    }
+}
+
+plugins {
+    id 'net.researchgate.release' version '2.4.0'
+
+    // Used to support immutables annotation processor
+    id "net.ltgt.apt" version "0.10"
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'io.practiceinsight'
+archivesBaseName = 'pinpayments-java'
+version = "$version"
+
+def skip_quality_check = project.hasProperty('check') && check == 'false'
+println("skip_quality_check: " + skip_quality_check)
+if (!skip_quality_check) {
+    ext.jacocoLimits = [
+            'instruction': 5,
+            'branch'     : 5,
+            'line'       : 6,
+            'complexity' : 5,
+            'method'     : 9,
+            'class'      : 38
+    ]
+    ext.jacocoExcludes = [
+            '**/Console.class', '**/*Module.class'
+    ]
+    apply from: "$rootDir/gradle/conf/checkstyle.gradle"
+    apply from: "$rootDir/gradle/conf/pmd.gradle"
+    apply from: "$rootDir/gradle/conf/cpd.gradle"
+    apply from: "$rootDir/gradle/conf/findbugs.gradle"
+    apply from: "$rootDir/gradle/conf/jacoco.gradle"
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+project.extensions.idea.module.iml {
+    withXml {
+        it.asNode().component.
+                find { it.@name == 'NewModuleRootManager' }.@LANGUAGE_LEVEL = target.level
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations.all {
+    resolutionStrategy {
+        // fail eagerly on version conflict (includes transitive dependencies)
+        // e.g. multiple different versions of the same dependency (group and name are equal)
+        failOnVersionConflict()
+
+        // force certain versions of dependencies (including transitive)
+        //  *append new forced modules:
+        force 'com.google.guava:guava:20.0',
+              'com.google.code.findbugs:annotations:3.0.1',
+              'com.google.code.findbugs:jsr305:3.0.1',
+              'commons-logging:commons-logging:1.1.3',
+              'org.apache.commons:commons-lang3:3.4',
+              'xml-apis:xml-apis:1.4.01',
+              'org.slf4j:slf4j-api:1.7.6'
+    }
+}
+
+test {
+    // enable TestNG support (default is JUnit)
+    useTestNG() {
+        excludeGroups 'integration', 'stress'
+        // useDefaultListeners = true produces the testng-results.xml files used by bamboo
+        // to display test result summaries
+        useDefaultListeners = true
+    }
+}
+
+dependencies {
+    // DI
+    compile 'com.google.inject:guice:4.1.0'
+
+    // Utilities
+    compile 'com.google.guava:guava:20.0'
+    compile 'xml-apis:xml-apis:1.4.01'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'commons-io:commons-io:2.5'
+    compile 'com.google.code.gson:gson:2.8.0'
+
+    // date and time handling
+    compile 'joda-time:joda-time:2.8.2'
+
+    // Annotation processor
+    compileOnly "org.immutables:value:2.5.3:annotations"
+    compileOnly "org.immutables:gson:2.5.3"
+    apt "org.immutables:value:2.5.3"
+
+    // FindBugs annotations
+    compile 'com.google.code.findbugs:annotations:3.0.1'
+    compile 'com.google.code.findbugs:jsr305:3.0.1'
+
+    // Logging
+    compile 'org.slf4j:slf4j-api:1.7.6'
+
+    // test dependencies
+    testCompile 'ch.qos.logback:logback-core:1.1.1'
+    testCompile 'ch.qos.logback:logback-classic:1.1.1'
+
+    /*
+      This is required by logback confitional processing, for more info please
+      see: http://logback.qos.ch/setup.html#janino
+
+      The org.codehaus.janino:commons-compiler:2.6.1 dependency will be
+      automatically pulled in by Maven's transitivity rules
+    */
+    testCompile 'org.codehaus.janino:janino:2.6.1'
+
+    testCompile 'com.google.inject.extensions:guice-servlet:4.1.0'
+    testCompile 'org.eclipse.jetty.aggregate:jetty-all:8.1.22.v20160922'
+    testCompile 'org.mockito:mockito-core:2.0.80-beta'
+    testCompile 'org.assertj:assertj-core:3.6.2'
+    testCompile 'org.testng:testng:6.8.8'
+}
+
+build {
+    doFirst {
+        delete 'out'
+    }
+}
+
+ext.userHome = System.getProperty("user.home")
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ["-sourcepath", ""]
+}
+
+javadoc {
+    // Avoid error: cannot access external classes
+    options.addStringOption("sourcepath", "")
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+artifacts {
+    archives jar
+    archives sourcesJar
+    archives javadocJar
+}
