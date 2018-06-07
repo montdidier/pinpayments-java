@@ -1,6 +1,6 @@
 # Overview
 
-This is a Java wrapper around pin.net.au API, which follows the structure of PinPayments' original RESTful API and covers all RESTful services completely.
+This is a Java wrapper around pinpayments.com API, which follows the structure of PinPayments' original RESTful API and covers all RESTful services completely.
 
 All wrapper methods have been covered with integration tests against PinPayments' test environment.
 
@@ -84,7 +84,7 @@ private ChargesApi chargesApi;
 
 public final void myBusinessMethod() {
   final ChargeResponse chargeResponse = chargesApi.create(ImmutableCharge.builder()
-    .email("roland@pin.net.au")
+    .email("roland@pinpayments.com")
     .currency("AUD")
     .description("test charge")
     .amount(400)

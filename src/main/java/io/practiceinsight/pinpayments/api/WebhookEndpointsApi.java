@@ -28,7 +28,7 @@ import io.practiceinsight.pinpayments.api.impl.WebhookEndpointsApiImpl;
  * The Webhook Endpoints API allows you to create and view your webhook endpoints to enable
  * your website to receive push notifications of events that occur on your Pin Payments account.
  *
- * @see <a href="https://pin.net.au/docs/api/webhook_endpoints">Webhook Endpoints API Beta</a>
+ * @see <a href="https://pinpayments.com/docs/api/webhook_endpoints">Webhook Endpoints API Beta</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(WebhookEndpointsApiImpl.class)

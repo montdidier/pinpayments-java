@@ -27,9 +27,9 @@ import io.practiceinsight.pinpayments.pojo.TransferListResponse;
 /**
  * The recipients API allows you to post bank account details and retrieve a token that
  * you can safely store in your app. You can send funds to recipients using
- * the <a href="https://pin.net.au/docs/api/transfers">transfers API</a>.
+ * the <a href="https://pinpayments.com/docs/api/transfers">transfers API</a>.
  *
- * @see <a href="https://pin.net.au/docs/api/recipients">Recipients API</a>
+ * @see <a href="https://pinpayments.com/docs/api/recipients">Recipients API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(RecipientsApiImpl.class)

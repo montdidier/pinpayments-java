@@ -12,7 +12,7 @@ private CustomersApi customersApi;
 
 public final void myBusinessMethod() {
   final CustomerResponse customerResponse = customersApi.create(ImmutableCustomer.builder()
-    .email("roland@pin.net.au")
+    .email("roland@pinpayments.com")
     .card(ImmutableCard.builder()
       .number("5520000000000000")
       .expiryMonth("05")
@@ -66,7 +66,7 @@ public final void myBusinessMethod() {
   final String customerToken = "customer-token";
   final CustomerResponse updated = customersApi
       .update(customerToken, ImmutableCustomer.builder()
-         .email("roland@pin.net.au")
+         .email("roland@pinpayments.com")
          .card(ImmutableCard.builder()
            .number("5520000000000000")
            .expiryMonth("05")

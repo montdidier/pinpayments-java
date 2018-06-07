@@ -26,7 +26,7 @@ import io.practiceinsight.pinpayments.pojo.RefundResponse;
 /**
  * The refunds API allows you to refund a charge, and retrieve the details of previous refunds.
  *
- * @see <a href="https://pin.net.au/docs/api/refunds">Refunds API</a>
+ * @see <a href="https://pinpayments.com/docs/api/refunds">Refunds API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(RefundsApiImpl.class)

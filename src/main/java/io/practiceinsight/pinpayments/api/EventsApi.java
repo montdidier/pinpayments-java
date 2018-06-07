@@ -26,7 +26,7 @@ import io.practiceinsight.pinpayments.api.impl.EventsApiImpl;
  * The events API allows you to view the activity on your account. Note that some actions
  * may create multiple events.
  *
- * @see <a href="https://pin.net.au/docs/api/events">Events API</a>
+ * @see <a href="https://pinpayments.com/docs/api/events">Events API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(EventsApiImpl.class)

@@ -37,7 +37,7 @@ import io.practiceinsight.pinpayments.pojo.DeletionResult;
  * this primary card. It contains a member called primary, which says whether the card is
  * a customer’s primary card; its value will always be true.</p>
  *
- * @see <a href="https://pin.net.au/docs/api/customers">Customers API</a>
+ * @see <a href="https://pinpayments.com/docs/api/customers">Customers API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(CustomersApiImpl.class)

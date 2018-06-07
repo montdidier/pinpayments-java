@@ -10,7 +10,7 @@ private RecipientsApi recipientsApi;
 
 public final void myBusinessMethod() {
   final RecipientResponse response = recipientsApi.create(ImmutableRecipient.builder()
-    .email("roland@pin.net.au")
+    .email("roland@pinpayments.com")
     .name("Mr Roland Robot")
     .bankAccount(buildBankAccount()).build());
   assertThat(response.response().token()).isNotBlank();

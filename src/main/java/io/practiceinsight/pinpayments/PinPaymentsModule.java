@@ -29,8 +29,8 @@ import io.practiceinsight.pinpayments.annotation.PinVersion;
  */
 public class PinPaymentsModule extends AbstractModule {
 
-  private static final String PIN_BASEURL_TEST = "https://test-api.pin.net.au";
-  private static final String PIN_BASEURL_PROD = "https://api.pin.net.au";
+  private static final String PIN_BASEURL_TEST = "https://test-api.pinpayments.com";
+  private static final String PIN_BASEURL_PROD = "https://api.pinpayments.com";
   private static final String PIN_VERSION = "1";
 
   private final Env env;

@@ -24,9 +24,9 @@ import io.practiceinsight.pinpayments.api.impl.BalanceApiImpl;
 /**
  * The balance API allows you to see the current balance of funds in your Pin Payments
  * account. You can use this to confirm whether a
- * <a href="https://pin.net.au/docs/api/transfers">transfer</a> is possible.
+ * <a href="https://pinpayments.com/docs/api/transfers">transfer</a> is possible.
  *
- * @see <a href="https://pin.net.au/docs/api/balance">Balance API</a>
+ * @see <a href="https://pinpayments.com/docs/api/balance">Balance API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(BalanceApiImpl.class)

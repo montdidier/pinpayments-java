@@ -10,7 +10,7 @@ private ChargesApi chargesApi;
 
 public final void myBusinessMethod() {
   final ChargeResponse chargeResponse = chargesApi.create(ImmutableCharge.builder()
-    .email("roland@pin.net.au")
+    .email("roland@pinpayments.com")
     .currency("AUD")
     .description("test charge")
     .amount(400)

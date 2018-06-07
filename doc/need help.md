@@ -1,6 +1,6 @@
 # Need help?
 
-The official documentation of the original HTTP RESTful API from PinPayments can be found from this link: [https://pin.net.au/docs/api/charges](https://pin.net.au/docs/api/charges).
+The official documentation of the original HTTP RESTful API from PinPayments can be found from this link: [https://pinpayments.com/docs/api/charges](https://pinpayments.com/docs/api/charges).
 
 ## Have a question?
 

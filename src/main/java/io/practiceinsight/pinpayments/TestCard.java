@@ -18,7 +18,7 @@ package io.practiceinsight.pinpayments;
 
 /**
  * Test cards provided by PinPayments. For more information please see:
- * <a href="https://pin.net.au/docs/api/test-cards">https://pin.net.au/docs/api/test-cards</a>
+ * <a href="https://pinpayments.com/docs/api/test-cards">https://pinpayments.com/docs/api/test-cards</a>
  *
  * @author delight.wjk@gmail.com
  */

@@ -29,7 +29,7 @@ import io.practiceinsight.pinpayments.pojo.TransferResponse;
  * The transfers API allows you to send money to Australian bank accounts, and to
  * retrieve details of previous transfers.
  *
- * @see <a href="https://pin.net.au/docs/api/transfers">Transfers API</a>
+ * @see <a href="https://pinpayments.com/docs/api/transfers">Transfers API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(TransfersApiImpl.class)

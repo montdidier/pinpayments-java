@@ -25,12 +25,12 @@ import io.practiceinsight.pinpayments.api.impl.BankAccountsApiImpl;
 /**
  * The bank account API allows you to securely store bank account details in exchange
  * for a bank account token. This token can then be used to create a recipient using the
- * <a href="https://pin.net.au/docs/api/recipients">recipients API</a>.
+ * <a href="https://pinpayments.com/docs/api/recipients">recipients API</a>.
  *
  * <p>A bank account token can only be used once to create a recipient. The token automatically
  * expires after 1 month if it hasn't been used.</p>
  *
- * @see <a href="https://pin.net.au/docs/api/bank-accounts">Bank Accounts API</a>
+ * @see <a href="https://pinpayments.com/docs/api/bank-accounts">Bank Accounts API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(BankAccountsApiImpl.class)

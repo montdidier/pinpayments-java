@@ -28,7 +28,7 @@ import io.practiceinsight.pinpayments.pojo.SearchCriteria;
  * The charges API allows you to create new credit card charges, and to retrieve details
  * of previous charges.
  *
- * @see <a href="https://pin.net.au/docs/api/charges">Charges API</a>
+ * @see <a href="https://pinpayments.com/docs/api/charges">Charges API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(ChargesApiImpl.class)
@@ -36,7 +36,7 @@ public interface ChargesApi {
 
   /**
    * Creates a new charge and returns its details. This may be a
-   * <a href="https://pin.net.au/docs/api#long-running-requests">long-running request</a>.
+   * <a href="https://pinpayments.com/docs/api#long-running-requests">long-running request</a>.
    *
    * @param charge The charge specified.
    * @return The details of the new charge created.

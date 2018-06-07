@@ -35,7 +35,7 @@ import io.practiceinsight.pinpayments.api.impl.CardTokensApiImpl;
  * <p>A card token can only be used once, to create either a charge or a customer. If
  * no charge or customer is created within 1 month, the token is automatically expired.
  *
- * @see <a href="https://pin.net.au/docs/api/cards">https://pin.net.au/docs/api/cards</a>
+ * @see <a href="https://pinpayments.com/docs/api/cards">https://pinpayments.com/docs/api/cards</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(CardTokensApiImpl.class)

@@ -53,7 +53,7 @@ public class TestDataFactory {
   public final Charge buildCharge(final TestCard testCard, final boolean capture) {
     final int amount = 400;
     return ImmutableCharge.builder()
-        .email("roland@pin.net.au")
+        .email("roland@pinpayments.com")
         .currency("AUD")
         .description("test charge")
         .amount(amount)
@@ -86,7 +86,7 @@ public class TestDataFactory {
   }
 
   public final Customer buildCustomer() {
-    return ImmutableCustomer.builder().email("roland@pin.net.au")
+    return ImmutableCustomer.builder().email("roland@pinpayments.com")
         .card(buildCard(TestCard.SuccessMasterCard)).build();
   }
 
@@ -96,7 +96,7 @@ public class TestDataFactory {
 
   public final Recipient buildRecipient() {
     return ImmutableRecipient.builder()
-        .email("roland@pin.net.au")
+        .email("roland@pinpayments.com")
         .name("Mr Roland Robot")
         .bankAccount(buildBankAccount()).build();
   }

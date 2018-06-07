@@ -32,7 +32,7 @@ import io.practiceinsight.pinpayments.pojo.WebhookResponse;
  * error information recorded for the original request and record any new errors that
  * occur during the replay.</p>
  *
- * @see <a href="https://pin.net.au/docs/api/webhooks">Webhooks API</a>
+ * @see <a href="https://pinpayments.com/docs/api/webhooks">Webhooks API</a>
  * @author delight.wjk@gmail.com
  */
 @ImplementedBy(WebhooksApiImpl.class)
